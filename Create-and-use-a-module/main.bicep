@@ -30,5 +30,9 @@ module cdn 'modules/cdn.bicep' = if (deployCdn) {
   }
 }
 
+module test1 'modules/test1.bicep' = {
+  name: 'test1'
+}
+
 @description('The hostname to use to access the website.')
 output websiteHostname string = deployCdn ? cdn.outputs.endpointHostName : app.outputs.appServiceAppHostName
